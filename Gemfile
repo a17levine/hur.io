@@ -6,6 +6,7 @@ ruby "2.0.0"
 group :development do
 	gem 'pry'
 	gem 'quiet_assets'
+	gem 'binding_of_caller'
 end
 
 group :development, :test do 
