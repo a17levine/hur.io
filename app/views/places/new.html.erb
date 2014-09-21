@@ -1,2 +1,17 @@
 <h1>Places#new</h1>
 <p>Find me in app/views/places/new.html.erb</p>
+
+
+<a name="place"></a>	
+	<div class="row">
+		<h2>Place</h2>
+		<div style="height:500px" id="map-container">
+			<input id="pac-input" class="controls" type="text"
+			        placeholder="Enter a location">
+			<div id="map-canvas"></div>
+		</div>
+	</div>
+<hr>
+
+
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDbGHvHMeIHMycjI0vN-dquD3N7kqeSRCQ&libraries=places"%>

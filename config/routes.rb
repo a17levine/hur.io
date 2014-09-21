@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get 'profile' => 'users#show'
 
   devise_for :users
-  resources :users
-  resources :places
+  resources :users do
+    resources :places  
+  end
+  
   get 'static_pages/home'
 
   # The priority is based upon order of creation: first created -> highest priority.
