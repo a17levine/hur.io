@@ -4,12 +4,18 @@
 
 #map-canvas {
   height: 100%;
-
   margin: 0px;
   padding: 0px
 }
 
 #map-container {
-	// width: 400px;
 	margin: 50px;
+}
+
+#pac-input {
+	top: 30px !important;
+	left: 104px !important;
+	width: 305px;
+	font-size: 18px !important;
+
 }
