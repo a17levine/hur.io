@@ -2,6 +2,9 @@
 <p>test</p>
 
 <h3>Your shortlinks</h3>
-<a href="#">Create new</a>
+<%= link_to "Create New", new_user_place_path(@user) %>
 
 <p><%= @user.inspect %></p>
+
+
+<%= link_to "Log Out", destroy_user_session_path, :method => "delete" %>

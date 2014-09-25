@@ -13,11 +13,11 @@ function logPlaceVariablesToConsole(){
 };
 
 function updatePlaceFields(){
-  $("#place_name").val(window.chosenPlaceName);
-  $("#place_address").val(window.chosenPlaceAddress);
-  $("#place_url").val(window.chosenPlaceUrl);
-  $("#save-place-button").css('visibility', 'visible');
-  $("#save-place-button").trigger("mouseover");
+  $("#chosen-place-name").val(window.chosenPlaceName);
+  // $("#place_address").val(window.chosenPlaceAddress);
+  $("#chosen-place-url-field").val(window.chosenPlaceUrl);
+  // $("#save-place-button").css('visibility', 'visible');
+  // $("#save-place-button").trigger("mouseover");
 }
 
 function initialize() {
@@ -53,7 +53,7 @@ function initialize() {
     var place = autocomplete.getPlace();
     window.chosenPlace = place;
     window.chosenPlaceName = window.chosenPlace.name;
-    window.chosenPlaceUrl = "http://maps.google.com/?q=" + encodeURI(chosenPlace.formatted_address);
+    window.chosenPlaceUrl = "http://maps.google.com/?q=" + encodeURI($("#pac-input").val());
     if (!place.geometry) {
       return;
     }
