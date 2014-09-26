@@ -1,9 +1,6 @@
 window.chosenPlace;
 window.chosenPlaceName;
 window.chosenPlaceAddress;
-window.chosenPlaceUrl;
-
-console.log("hi");
 
 function logPlaceVariablesToConsole(){
   console.log("chosenPlace is", window.chosenPlace);
@@ -12,12 +9,21 @@ function logPlaceVariablesToConsole(){
   console.log("chosenPlaceUrl is", window.chosenPlaceUrl);
 };
 
+function getLatLong(chosenPlace){
+  if (chosenPlace.geometry !== undefined ) { 
+    return chosenPlace.geometry.location.toString();
+  } else if (chosenPlace.toString() !== undefined ){
+      return chosenPlace.toString();  
+  } else {
+    return "";
+  }
+}
+
 function updatePlaceFields(){
   $("#chosen-place-name").val(window.chosenPlaceName);
   $("#chosen-place-google-friendly-name-field").val($("#pac-input").val());
   $("#chosen-place-formatted-address-field").val(window.chosenPlace.formatted_address);
-  // $("#save-place-button").css('visibility', 'visible');
-  // $("#save-place-button").trigger("mouseover");
+  $("#chosen-place-lat-long").val(getLatLong(chosenPlace));
 }
 
 function initialize() {
@@ -27,8 +33,6 @@ function initialize() {
   };
   var map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
-
-  console.log("map is", map);
 
   var input = /** @type {HTMLInputElement} */(
       document.getElementById('pac-input'));
@@ -100,10 +104,10 @@ function initialize() {
     'dragend',
     function() {
       window.chosenPlace = marker.getPosition();
-      window.chosenPlaceName = "Custom Pin";
-      window.chosenPlaceUrl = "http://maps.google.com/?q=" + chosenPlace.toUrlValue();
+      window.chosenPlaceName = "";
       window.chosenPlaceAddress = chosenPlace.toString();
       updatePlaceFields();
+      $("#chosen-place-google-friendly-name-field").val("");
       marker.icon.url = "http://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png";
       infowindow.setContent("<div><strong>Custom Location</strong>");
     }
@@ -111,6 +115,7 @@ function initialize() {
 }
 
 $(document).ready(function(){
-  console.log("map canvas length is", $("#map-canvas").length);
-  google.maps.event.addDomListener(window, 'load', initialize);
+  if ($("#map-canvas").length >= 1) {
+    google.maps.event.addDomListener(window, 'load', initialize);
+  }
 })
