@@ -14,8 +14,8 @@ function logPlaceVariablesToConsole(){
 
 function updatePlaceFields(){
   $("#chosen-place-name").val(window.chosenPlaceName);
-  // $("#place_address").val(window.chosenPlaceAddress);
-  $("#chosen-place-url-field").val(window.chosenPlaceUrl);
+  $("#chosen-place-google-friendly-name-field").val($("#pac-input").val());
+  $("#chosen-place-formatted-address-field").val(window.chosenPlace.formatted_address);
   // $("#save-place-button").css('visibility', 'visible');
   // $("#save-place-button").trigger("mouseover");
 }

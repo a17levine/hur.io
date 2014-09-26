@@ -5,7 +5,8 @@
 	<%= f.text_field :alias %>
 	<%= label_tag(:name, "Name:") %>
   <%= f.text_field :name, id: "chosen-place-name" %>
-  <%= f.text_field :url, id: "chosen-place-url-field" %>
+  <%= f.text_field :google_friendly_name, id: "chosen-place-google-friendly-name-field" %>
+  <%= f.text_field :formatted_address, id: "chosen-place-formatted-address-field" %>
   <%= f.submit "Create" %>
 <% end %>
 

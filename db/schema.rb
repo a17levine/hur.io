@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906213250) do
+ActiveRecord::Schema.define(version: 20140926045502) do
 
   create_table "places", force: true do |t|
     t.string   "name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20140906213250) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "google_friendly_name"
+    t.string   "formatted_address"
   end
 
   add_index "places", ["user_id"], name: "index_places_on_user_id"
