@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
 
-  get '/:alias' => 'places#show'
+  get '/:alias' => 'places#show', as: :alias
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
