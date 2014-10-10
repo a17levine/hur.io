@@ -15,6 +15,14 @@ class PlacesController < ApplicationController
   def edit
   end
 
+  def show
+    if params[:id]
+      @place = Place.find(params[:id])
+    else
+      @place = Place.find_by(:alias => params[:alias])
+    end  
+  end
+
   def destroy
   end
 
