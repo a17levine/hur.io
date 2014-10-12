@@ -20,6 +20,9 @@ class PlacesController < ApplicationController
       @place = Place.find(params[:id])
     else
       @place = Place.find_by(:alias => params[:alias])
+      if @place.basic? == true
+        redirect_to @place.google_url
+      end
     end  
   end
 
