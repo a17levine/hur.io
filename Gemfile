@@ -45,3 +45,4 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'figaro'
+gem 'foundation-rails'
