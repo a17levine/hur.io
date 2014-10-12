@@ -9,11 +9,21 @@ function logPlaceVariablesToConsole(){
   console.log("chosenPlaceUrl is", window.chosenPlaceUrl);
 };
 
-function getLatLong(chosenPlace){
+function getLat(chosenPlace){
   if (chosenPlace.geometry !== undefined ) { 
-    return chosenPlace.geometry.location.toString();
-  } else if (chosenPlace.toString() !== undefined ){
-      return chosenPlace.toString();  
+    return chosenPlace.geometry.location.lat();
+  } else if (chosenPlace.lat() !== undefined ){
+      return chosenPlace.lat();  
+  } else {
+    return "";
+  }
+}
+
+function getLng(chosenPlace){
+  if (chosenPlace.geometry !== undefined ) { 
+    return chosenPlace.geometry.location.lng();
+  } else if (chosenPlace.lng() !== undefined ){
+      return chosenPlace.lng();  
   } else {
     return "";
   }
@@ -23,7 +33,8 @@ function updatePlaceFields(){
   $("#chosen-place-name").val(window.chosenPlaceName);
   $("#chosen-place-google-friendly-name-field").val($("#pac-input").val());
   $("#chosen-place-formatted-address-field").val(window.chosenPlace.formatted_address);
-  $("#chosen-place-lat-long").val(getLatLong(chosenPlace));
+  $("#chosen-place-lat").val(getLat(chosenPlace));
+  $("#chosen-place-lng").val(getLng(chosenPlace));
 }
 
 function initialize() {

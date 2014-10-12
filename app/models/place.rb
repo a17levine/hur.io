@@ -2,7 +2,7 @@ class Place < ActiveRecord::Base
   belongs_to :user
 
   def basic?
-  	if self.notes.blank? == true
+  	if self.notes.blank? == true || self.parking_notes.blank? == true
   		return true
   	else
   		return false
@@ -17,5 +17,9 @@ class Place < ActiveRecord::Base
   		escaped_google_friendly_name = CGI::escape(self.google_friendly_name)
   	end
   	return base_url + escaped_google_friendly_name
+  end
+
+  def lat_long
+    return "#{self.lat}, #{self.long}"
   end
 end

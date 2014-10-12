@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927023730) do
+ActiveRecord::Schema.define(version: 20141012090511) do
 
   create_table "places", force: true do |t|
     t.string   "name"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 20140927023730) do
     t.string   "google_friendly_name"
     t.string   "formatted_address"
     t.text     "notes"
-    t.string   "lat_long"
+    t.string   "parking_notes"
+    t.string   "lat"
+    t.string   "long"
   end
 
   add_index "places", ["user_id"], name: "index_places_on_user_id"

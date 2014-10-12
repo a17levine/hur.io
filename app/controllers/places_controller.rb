@@ -35,7 +35,9 @@ class PlacesController < ApplicationController
       															:name, 
       															:google_friendly_name, 
       															:formatted_address,
-      															:lat_long,
-      															:notes)
+      															:lat,
+                                    :long,
+      															:notes,
+                                    :parking_notes)
     end
 end
