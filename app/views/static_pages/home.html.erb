@@ -1,4 +1,33 @@
-<h1>Welcome to hur.io</h1>
-<h3>Shortlink your address!</h3>
+<div class="row">
+	<h1>hur.i<img style="height:32px;margin-left: -3px;"src="/assets/fi-compass.svg"></h1>
+	<h3>get found // right hur</h3>	
+</div>
 
-<%= link_to "Login", new_user_session_path %>
+<div class="row">
+	<%= image_tag 'iphone.png' %>
+</div>
+
+
+<div class='row'>
+	<p>In its simplest use, it will redirect you to the Google Maps link for your place.</p>
+	<p>You can get more specific with tips.</p>
+	<ul>
+		<li>"Look for the blue door"</li>
+		<li>"Come up to floor 2, exit the elevator to your left and we’re the last door on the right
+"</li>
+	</ul>
+
+	<p>You can even give parking instructions.</p>
+	<ul>
+		<li>"You can park anywhere in my complex parking lot"</li>
+		<li>"Street parking on North Loop is also all unrestricted"</li>
+	</ul>
+</div>
+
+<div class="row">
+	<a href="#" class='button'>Get a shortlink for your location</a>
+</div>
+
+<div class="row">
+	<%= link_to "Login", new_user_session_path, class: "button" %>
+</div>
