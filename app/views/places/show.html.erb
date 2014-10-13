@@ -1,24 +1,24 @@
 <div class="row">
 	<h1>hur.i<img style="height:32px;margin-left: -3px;"src="/assets/fi-compass.svg"></h1>
-	<h3>get found // right hur</h3>	
+	<h3>get found</h3>	
 </div>
 
 <div class="row" style="margin-top:100px;">
 	<h2><%= @place.name %></h2>
 	<p><%= @place.formatted_address %></p>
-	<!-- <a href=""><img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284"></a> -->
-	<%= link_to image_tag("https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284"), @place.google_url %>
+	<%= link_to image_tag(@place.google_map_image), @place.google_url %>
 </div>
 	<div class="row">
-		<%= link_to "Click to view in Google Maps", @place.google_url %>	
+		<%= link_to "click to view in Google Maps", @place.google_url %>	
+	</div>
+<div class="more-info">
+	<div class="row">
+		<h3>How to find us</h3>
+		<p><%= @place.notes %></p>
 	</div>
 
-<div class="row">
-	<h3>How to find us</h3>
-	<p><%= @place.notes %></p>
-</div>
-
-<div class="row">
-	<h3>Where to park</h3>
-	<p><%= @place.parking_notes %></p>
+	<div class="row">
+		<h3>Where to park</h3>
+		<p><%= @place.parking_notes %></p>
+	</div>
 </div>

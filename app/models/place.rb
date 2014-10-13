@@ -10,16 +10,28 @@ class Place < ActiveRecord::Base
   end
 
   def google_url
-  	base_url = "http://maps.google.com/?q="
-  	if self.google_friendly_name.blank? == true
-  		escaped_google_friendly_name = CGI::escape(self.lat_long)
-  	else
-  		escaped_google_friendly_name = CGI::escape(self.google_friendly_name)
-  	end
-  	return base_url + escaped_google_friendly_name
+  	return "http://maps.google.com/?q=" + CGI::escape(self.google_query)
   end
 
   def lat_long
     return "#{self.lat}, #{self.long}"
   end
+
+  def google_map_image
+    map = GoogleStaticMap.new(:zoom => 15, :center => MapLocation.new(:address => self.lat_long), :width => 640, :height => 400)
+    map.markers << MapMarker.new(:color => "blue", :location => MapLocation.new(:address => self.lat_long))
+    # map.get_map
+    map.url(:auto)
+  end
+
+  protected
+  
+  def google_query
+    if self.google_friendly_name.blank? == true
+      return self.lat_long
+    else
+      return self.google_friendly_name
+    end
+  end
+
 end

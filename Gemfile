@@ -4,20 +4,20 @@ ruby "2.0.0"
 
 
 group :development do
-	gem 'pry'
-	gem 'quiet_assets'
-	gem 'binding_of_caller'
+  gem 'pry'
+  gem 'quiet_assets'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do 
-	gem 'sqlite3'
-	gem 'better_errors'
-	gem 'hirb'
+  gem 'sqlite3'
+  gem 'better_errors'
+  gem 'hirb'
 end
 
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -46,3 +46,4 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'figaro'
 gem 'foundation-rails'
+gem 'googlestaticmap'
