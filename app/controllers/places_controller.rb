@@ -6,13 +6,14 @@ class PlacesController < ApplicationController
   def create
   	@place = current_user.places.new(place_params)
   	if @place.save
-  		redirect_to current_user
+  		redirect_to alias_path(@place.alias)
   	else
   		#return an error
   	end
   end
 
   def edit
+    @place = Place.find(params[:id])
   end
 
   def show

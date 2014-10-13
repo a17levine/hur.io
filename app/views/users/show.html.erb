@@ -1,22 +1,26 @@
-<h1><%= @user.name %></h1>
-<p>test</p>
+<div class="row">
+	<h1>hur.i<img style="height:32px;margin-left: -3px;"src="/assets/fi-compass.svg"></h1>
+	<h3>get found</h3>	
+</div>
 
-<h3>Your shortlinks</h3>
+<div class="row">
+	<h1>All of your hur.io links</h1>
+</div>
 
-<% if current_user.places.empty? %>
-	<p>No links yet, create one</p>
-<% else %>
-	<ul>
-		<% current_user.places.each do |p| %>
-			<li><%= link_to "hur.io/#{p.alias}", alias_path(p.alias) %></li>
-		<% end %>
-	</ul>
-<% end %>
-
-
-<%= link_to "Create New", new_user_place_path(@user) %>
-
-<p><%= @user.inspect %></p>
+<div class="row">
+	<% if current_user.places.empty? %>
+		<p>No links yet, create one</p>
+	<% else %>
+		<ul>
+			<% current_user.places.each do |p| %>
+				<li><%= link_to "hur.io/#{p.alias}", alias_path(p.alias) %> <%= link_to "[edit]", edit_user_place_path(@user, p)%></li>
+			<% end %>
+		</ul>
+	<% end %>
 
 
-<%= link_to "Log Out", destroy_user_session_path, :method => "delete" %>
+	<%= link_to "Create New", new_user_place_path(@user), class: "button"  %>
+
+
+	<%= link_to "Log Out", destroy_user_session_path, :method => "delete", class: "button" %>
+</div>
