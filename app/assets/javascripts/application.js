@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require underscore
+//= require gmaps/google
 //= require places
 //= require_tree .
 
