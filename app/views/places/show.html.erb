@@ -29,14 +29,14 @@
   window.Hurio = {};
 	window.Hurio.currentPlaceShowMarkers = [
 	    {
-	      "lat": 30.3178083,
-	      "lng": -97.7224372,
+	      "lat": <%= @place.lat %>,
+	      "lng": <%= @place.long %>,
 	      "picture": {
 	        "url": "<%= asset_path('pin.png') %>",
 	        "width":  36,
 	        "height": 36
 	      },
-	      "infowindow": "hello!",
+	      "infowindow": "<%= @place.name %>",
 	      "zoom": 10
 	    }
 	  ];
