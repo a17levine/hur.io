@@ -46,4 +46,5 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'figaro'
 gem 'foundation-rails'
-gem 'googlestaticmap'
+gem 'underscore-rails'
+gem 'gmaps4rails'

@@ -6,7 +6,9 @@
 <div class="row" style="margin-top:100px;">
 	<h2><%= @place.name %></h2>
 	<p><%= @place.formatted_address %></p>
-	<%= link_to image_tag(@place.google_map_image), @place.google_url %>
+	<div style='width: 800px;'>
+  	<div id="map" style='width: 800px; height: 400px;'></div>
+	</div>
 </div>
 	<div class="row">
 		<%= link_to "click to view in Google Maps", @place.google_url %>	
