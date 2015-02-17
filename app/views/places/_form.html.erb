@@ -7,9 +7,9 @@
 	  <%= f.hidden_field :formatted_address, id: "chosen-place-formatted-address-field", :placeholder => "(Optional) Address" %>
 	  <%= f.hidden_field :lat, id: "chosen-place-lat", :placeholder => "Latitude" %>
 	  <%= f.hidden_field :long, id: "chosen-place-lng", :placeholder => "Longitude" %>
-		<%= label_tag(:notes, "Notes:") %>
+		<%= label_tag(:notes, "How to find it:") %>
 	  <%= f.text_area :notes, id: "chosen-place-notes-field", :placeholder => "(Optional) Notes" %>
-	  <%= label_tag(:parking_notes, "Parking notes:") %>
+	  <%= label_tag(:parking_notes, "Where to park:") %>
 	  <%= f.text_area :parking_notes, id: "chosen-place-parking-notes-field", :placeholder => "(Optional) Parking Notes" %>
 	  <%= f.submit "Create" %>
 	<% end %>
