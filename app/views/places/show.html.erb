@@ -7,7 +7,7 @@
 	<h2><%= @place.name %></h2>
 	<p><%= @place.formatted_address %></p>
 	<div style='width: 800px;'>
-  	<div id="map" style='width: 800px; height: 400px;'></div>
+  	<div id="placeMap" style='width: 800px; height: 400px;'></div>
 	</div>
 </div>
 	<div class="row">
@@ -24,3 +24,21 @@
 		<p><%= @place.parking_notes %></p>
 	</div>
 </div>
+
+<script type="text/javascript">
+  window.Hurio = {};
+	window.Hurio.currentPlaceShowMarkers = [
+	    {
+	      "lat": 30.3178083,
+	      "lng": -97.7224372,
+	      "picture": {
+	        "url": "<%= asset_path('pin.png') %>",
+	        "width":  36,
+	        "height": 36
+	      },
+	      "infowindow": "hello!",
+	      "zoom": 10
+	    }
+	  ];
+
+</script>

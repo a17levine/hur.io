@@ -31,3 +31,13 @@ body {
 	font-size: 18px !important;
 
 }
+
+// Foundation map fix
+
+#googlemap img, object, embed { max-width: none; }
+
+#placeMap embed { max-width: none; }
+
+#placeMap img { max-width: none; }
+
+#placeMap object { max-width: none; }
