@@ -39,6 +39,8 @@ class PlacesController < ApplicationController
       															:lat,
                                     :long,
       															:notes,
-                                    :parking_notes)
+                                    :parking_notes,
+                                    :unit_number,
+                                    :photo)
     end
 end

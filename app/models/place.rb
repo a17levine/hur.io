@@ -1,5 +1,6 @@
 class Place < ActiveRecord::Base
   belongs_to :user
+  mount_uploader :photo, PhotoUploader
 
   def basic?
   	if self.notes.blank? == true || self.parking_notes.blank? == true
