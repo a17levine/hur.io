@@ -40,7 +40,11 @@ class PlacesController < ApplicationController
                                     :long,
       															:notes,
                                     :parking_notes,
+<<<<<<< HEAD
                                     :unit_number,
                                     :photo)
+=======
+                                    :main_photo)
+>>>>>>> paperclip
     end
 end

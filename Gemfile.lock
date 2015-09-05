@@ -29,6 +29,11 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    aws-sdk (1.66.0)
+      aws-sdk-v1 (= 1.66.0)
+    aws-sdk-v1 (1.66.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt-ruby (3.1.2)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -36,11 +41,18 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+<<<<<<< HEAD
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+=======
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.7)
+      climate_control (>= 0.0.3, < 1.0)
+>>>>>>> paperclip
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -166,6 +178,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+<<<<<<< HEAD
     mini_magick (4.1.0)
     mini_portile (0.6.2)
     minitest (5.4.1)
@@ -173,9 +186,21 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
+=======
+    mimemagic (0.3.0)
+    mini_portile (0.6.2)
+    minitest (5.4.1)
+    multi_json (1.10.1)
+>>>>>>> paperclip
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    paperclip (4.3.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     pg (0.17.1)
     polyglot (0.3.5)
     pry (0.9.12.6)
@@ -252,6 +277,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk (~> 1.6)
   better_errors
   binding_of_caller
   carrierwave
@@ -264,7 +290,11 @@ DEPENDENCIES
   hirb
   jbuilder (~> 2.0)
   jquery-rails
+<<<<<<< HEAD
   mini_magick
+=======
+  paperclip (~> 4.3)
+>>>>>>> paperclip
   pg
   pry
   quiet_assets
