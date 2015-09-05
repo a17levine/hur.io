@@ -1,7 +1,9 @@
 <div class="row">
-	<%= form_for @place, url: {action: "create"}, html: {class: "place_form"} do |f| %>
+	<%= form_for @place, multipart: true, url: {action: "create"}, html: {class: "place_form"} do |f| %>
 		<%= label_tag(:alias, "hur.io/:") %>
 		<%= f.text_field :alias, :placeholder => "mycrib" %>
+		<%= label_tag(:main_photo, "Photo") %>
+		<%= f.file_field :main_photo, accept: 'image/png,image/jpeg' %>
 	  <%= f.hidden_field :name, id: "chosen-place-name", :placeholder => "(Optional) Name" %>
 	  <%= f.hidden_field :google_friendly_name, id: "chosen-place-google-friendly-name-field", :placeholder => "Google Friendly Name" %>
 	  <%= f.hidden_field :formatted_address, id: "chosen-place-formatted-address-field", :placeholder => "(Optional) Address" %>

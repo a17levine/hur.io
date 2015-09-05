@@ -41,3 +41,7 @@ gem 'figaro'
 gem 'foundation-rails'
 gem 'underscore-rails'
 gem 'gmaps4rails'
+gem "paperclip", "~> 4.3"
+gem 'aws-sdk', '~> 1.6'
+
+

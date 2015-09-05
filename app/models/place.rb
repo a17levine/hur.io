@@ -1,5 +1,9 @@
 class Place < ActiveRecord::Base
   belongs_to :user
+  has_attached_file :main_photo, styles: { medium: "300x300>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :main_photo, content_type: /\Aimage\/.*\Z/
+  validates_attachment_file_name :main_photo, matches: [/png\Z/, /jpe?g\Z/]
+  validates_with AttachmentSizeValidator, attributes: :main_photo, less_than: 2.megabytes
 
   def basic?
   	if self.notes.blank? == true || self.parking_notes.blank? == true
