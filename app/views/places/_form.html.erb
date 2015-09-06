@@ -15,7 +15,13 @@
 	  <%= f.text_area :notes, id: "chosen-place-notes-field", :placeholder => "(Optional) Notes - Ex. Go up the stairs and follow the white rabbit" %>
 	  <%= label_tag(:parking_notes, "Where to park:") %>
 	  <%= f.text_area :parking_notes, id: "chosen-place-parking-notes-field", :placeholder => "(Optional) Parking Notes - Ex. Look for my spaceship next to my neighbor's Delorean. Should be parking around there. Any uncovered parking is legit." %>
-	  <div class="g-recaptcha" data-sitekey="6LcoZQwTAAAAAL7jGYBKIx0EYivJoqbFh2Hx5ssr"></div>
-	  <%= f.submit "Create" %>
+	  <div class="g-recaptcha" data-callback='enableSubmit' data-sitekey="6LcoZQwTAAAAAL7jGYBKIx0EYivJoqbFh2Hx5ssr"></div>
+	  <%= f.submit "Create", :disabled => true %>
 	<% end %>
 </div>
+
+<script>
+function enableSubmit() {
+	$(":submit").attr("disabled", false);
+}
+</script>

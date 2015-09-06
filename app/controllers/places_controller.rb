@@ -4,12 +4,21 @@ class PlacesController < ApplicationController
   end
 
   def create
-  	@place = current_user.places.new(place_params)
-  	if @place.save
-  		redirect_to alias_path(@place.alias)
-  	else
-  		#return an error
-  	end
+    conn = Faraday.new(:url => 'https://www.google.com/recaptcha/api/siteverify')
+    recaptcha_response = conn.post '', { 
+      :secret => ENV['RECAPTCHA_SECRET'],
+      :response => params["g-recaptcha-response"]
+    }
+    if JSON.parse(recaptcha_response.body)['success'] == true
+    	@place = current_user.places.new(place_params)
+    	if @place.save
+    		redirect_to alias_path(@place.alias), success: "Place saved."
+    	else
+    		redirect_to places_new_path, alert: "There was an error and your place could not be created."
+    	end
+    else
+      redirect_to places_new_path, alert: "There was an error with your recaptcha and your place could not be created."
+    end
   end
 
   def edit
