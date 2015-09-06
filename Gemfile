@@ -22,10 +22,8 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'fog'
-gem 'carrierwave'
 gem 'mini_magick'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -41,10 +39,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.5.0'
 gem 'underscore-rails'
 gem 'gmaps4rails'
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '~> 1.6'
+gem 'faraday'
 
 

@@ -1,7 +1,7 @@
 <div class="row">
 	<%= form_for @place, multipart: true, url: {action: "create"}, html: {class: "place_form"} do |f| %>
     <%= label_tag(:unit_number, "Apt or Unit #") %>
-    <%= text_field :unit_number, :placeholder => "hi" %>
+    <%= f.text_field(:unit_number, :placeholder => "Unit A") %>
 		<%= label_tag(:alias, "hur.io/:") %>
 		<%= f.text_field :alias, :placeholder => "mycrib" %>
 		<%= label_tag(:main_photo, "Photo") %>
@@ -11,12 +11,11 @@
 	  <%= f.hidden_field :formatted_address, id: "chosen-place-formatted-address-field", :placeholder => "(Optional) Address" %>
 	  <%= f.hidden_field :lat, id: "chosen-place-lat", :placeholder => "Latitude" %>
 	  <%= f.hidden_field :long, id: "chosen-place-lng", :placeholder => "Longitude" %>
-    <%= label_tag(:photo, "Upload a photo:") %>
-    <%= f.file_field :photo, accept: 'image/png, image/jpeg' %>
 		<%= label_tag(:notes, "How to find it:") %>
-	  <%= f.text_area :notes, id: "chosen-place-notes-field", :placeholder => "(Optional) Notes" %>
+	  <%= f.text_area :notes, id: "chosen-place-notes-field", :placeholder => "(Optional) Notes - Ex. Go up the stairs and follow the white rabbit" %>
 	  <%= label_tag(:parking_notes, "Where to park:") %>
-	  <%= f.text_area :parking_notes, id: "chosen-place-parking-notes-field", :placeholder => "(Optional) Parking Notes" %>
+	  <%= f.text_area :parking_notes, id: "chosen-place-parking-notes-field", :placeholder => "(Optional) Parking Notes - Ex. Look for my spaceship next to my neighbor's Delorean. Should be parking around there. Any uncovered parking is legit." %>
+	  <div class="g-recaptcha" data-sitekey="6LcoZQwTAAAAAL7jGYBKIx0EYivJoqbFh2Hx5ssr"></div>
 	  <%= f.submit "Create" %>
 	<% end %>
 </div>
