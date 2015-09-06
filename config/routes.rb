@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'places/new'
 
-  get 'places/create'
+  post 'places' => 'places#create'
 
   get 'places/edit'
 
