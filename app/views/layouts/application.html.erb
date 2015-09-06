@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "hur.io // shortlink your address" %></title>
+    <link rel="icon" href="<%= asset_path('fi-compass.svg') %>" sizes="any" type="image/svg+xml"/>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -16,6 +17,10 @@
   <p class="alert"><%= alert %></p>
 
     <%= yield %>
+
+    <footer>
+      <br><br><br><br><br><br>
+    </footer>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDKGETbzXegPRNyJt6BeUzny9ORL1nja8Q&libraries=places"%>
     <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js"%>
 
