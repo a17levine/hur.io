@@ -9,7 +9,8 @@ class PlacesController < ApplicationController
       :secret => ENV['RECAPTCHA_SECRET'],
       :response => params["g-recaptcha-response"]
     }
-    binding.pry
+    puts 'google responded with'
+    puts recaptcha_response.body
   	@place = current_user.places.new(place_params)
   	if @place.save
   		redirect_to alias_path(@place.alias)
