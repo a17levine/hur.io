@@ -4,6 +4,12 @@ class PlacesController < ApplicationController
   end
 
   def create
+    conn = Faraday.new(:url => 'https://www.google.com/recaptcha/api/siteverify')
+    recaptcha_response = conn.post '/', { 
+      :secret => ENV['RECAPTCHA_SECRET'],
+      :response => params["g-recaptcha-response"]
+    }
+    binding.pry
   	@place = current_user.places.new(place_params)
   	if @place.save
   		redirect_to alias_path(@place.alias)
