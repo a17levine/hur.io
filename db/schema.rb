@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150317001558) do
-=======
-ActiveRecord::Schema.define(version: 20150905063355) do
->>>>>>> paperclip
+ActiveRecord::Schema.define(version: 20150906000504) do
 
   create_table "places", force: true do |t|
     t.string   "name"
@@ -29,15 +25,11 @@ ActiveRecord::Schema.define(version: 20150905063355) do
     t.string   "parking_notes"
     t.string   "lat"
     t.string   "long"
-<<<<<<< HEAD
-    t.string   "unit_number"
-    t.string   "photo"
-=======
     t.string   "main_photo_file_name"
     t.string   "main_photo_content_type"
     t.integer  "main_photo_file_size"
     t.datetime "main_photo_updated_at"
->>>>>>> paperclip
+    t.string   "unit_number"
   end
 
   add_index "places", ["user_id"], name: "index_places_on_user_id"
