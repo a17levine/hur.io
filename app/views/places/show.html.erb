@@ -6,13 +6,18 @@
 <div class="row" style="margin-top:100px;">
 	<h2><%= @place.name %> <%= @place.unit_number.present? ? @place.unit_number : '' %></h2>
 	<p><%= @place.unit_number.present? ? @place.unit_number : '' %> <%= @place.formatted_address %></p>
-	<p><%= image_tag @place.main_photo.url(:medium) %></p>
+	<h2>Photo</h2>
+	<p><%= image_tag @place.main_photo.url(:original) %></p>
+	<h2>Map</h2>
+	<!-- <div class="row"> -->
+		<%= link_to "click to open in Google Maps", @place.google_url %>	
+	<!-- </div> -->
 	<div style='width: 800px;'>
   	<div id="placeMap" style='width: 800px; height: 400px;'></div>
 	</div>
 </div>
 	<div class="row">
-		<%= link_to "click to view in Google Maps", @place.google_url %>	
+		<%= link_to "click to open in Google Maps", @place.google_url %>	
 	</div>
 <div class="more-info">
 	<div class="row">

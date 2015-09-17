@@ -1,9 +1,16 @@
 class Place < ActiveRecord::Base
   belongs_to :user
-  has_attached_file :main_photo, styles: { medium: "300x300>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :main_photo, styles: { original: "600x600>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :main_photo, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :main_photo, matches: [/png\Z/, /jpe?g\Z/]
   validates_with AttachmentSizeValidator, attributes: :main_photo, less_than: 2.megabytes
+
+  # Alias actions and validators
+  before_validation :tidy_up_alias
+  validates :alias, format: { with: /\A[a-z\d]*\Z/i, message: "only allows letters and numbers" }
+  validates :alias, length: { minimum: 4 }
+  validates :alias, uniqueness: true
+
 
   def basic?
   	if self.notes.blank? == true || self.parking_notes.blank? == true
@@ -36,6 +43,13 @@ class Place < ActiveRecord::Base
     else
       return self.google_friendly_name
     end
+  end
+
+  private
+
+  def tidy_up_alias
+    self.alias = self.alias.downcase.gsub(" ","")
+    true
   end
 
 end
