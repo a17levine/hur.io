@@ -1,9 +1,21 @@
 <div class="row">
 	<%= form_for @place, multipart: true, url: {action: "create"}, html: {class: "place_form"} do |f| %>
+    <% @place.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
     <%= label_tag(:unit_number, "Apt or Unit #") %>
-    <%= f.text_field(:unit_number, :placeholder => "Unit A") %>
+    <%= f.text_field(
+    	:unit_number, 
+    	:style => 'width:140px',
+    	:placeholder => "(Optional) Unit A") %>
 		<%= label_tag(:alias, "hur.io/:") %>
-		<%= f.text_field :alias, :placeholder => "mycrib" %>
+		<%= f.text_field :alias,
+			:style => 'width:178px',
+			:placeholder => "mycrib", 
+			:pattern => "[a-zA-Z0-9]{1,20}", 
+			:required => 'required',
+			:title => 'Can only be letters and numbers with no spaces between 4-20 characters.'
+		%>
 		<%= label_tag(:main_photo, "Photo") %>
 		<%= f.file_field :main_photo, accept: 'image/png,image/jpeg' %>
 	  <%= f.hidden_field :name, id: "chosen-place-name", :placeholder => "(Optional) Name" %>
@@ -12,11 +24,17 @@
 	  <%= f.hidden_field :lat, id: "chosen-place-lat", :placeholder => "Latitude" %>
 	  <%= f.hidden_field :long, id: "chosen-place-lng", :placeholder => "Longitude" %>
 		<%= label_tag(:notes, "How to find it:") %>
-	  <%= f.text_area :notes, id: "chosen-place-notes-field", :placeholder => "(Optional) Notes - Ex. Go up the stairs and follow the white rabbit" %>
+	  <%= f.text_area :notes, 
+	  	id: "chosen-place-notes-field", 
+	  	:style => 'width:500px;height:115px',
+	  	:placeholder => "(Optional) Notes - Ex. Go up the stairs and follow the white rabbit" %>
 	  <%= label_tag(:parking_notes, "Where to park:") %>
-	  <%= f.text_area :parking_notes, id: "chosen-place-parking-notes-field", :placeholder => "(Optional) Parking Notes - Ex. Look for my spaceship next to my neighbor's Delorean. Should be parking around there. Any uncovered parking is legit." %>
-	  <div class="g-recaptcha" data-callback='enableSubmit' data-sitekey="6LcoZQwTAAAAAL7jGYBKIx0EYivJoqbFh2Hx5ssr"></div>
-	  <%= f.submit "Create", :disabled => true %>
+	  <%= f.text_area :parking_notes, 
+	  	id: "chosen-place-parking-notes-field", 
+	  	:style => 'width:500px;height:115px',
+	  	:placeholder => "(Optional) Parking Notes - Ex. Look for my spaceship next to my neighbor's Delorean. Should be parking around there. Any uncovered parking is legit." %>
+<!-- 	  <div class="g-recaptcha" data-callback='enableSubmit' data-sitekey="6LcoZQwTAAAAAL7jGYBKIx0EYivJoqbFh2Hx5ssr"></div> -->
+	  <%= f.submit "Create", :disabled => false %>
 	<% end %>
 </div>
 

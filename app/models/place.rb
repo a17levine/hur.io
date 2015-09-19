@@ -5,10 +5,15 @@ class Place < ActiveRecord::Base
   validates_attachment_file_name :main_photo, matches: [/png\Z/, /jpe?g\Z/]
   validates_with AttachmentSizeValidator, attributes: :main_photo, less_than: 2.megabytes
 
+  validates :unit_number, length: { maximum: 15 }
+  validates :google_friendly_name, :formatted_address, :name, length: { maximum: 100 }
+  validates :name, :google_friendly_name, :formatted_address, :lat, :long, presence: true
+  validates :notes, :parking_notes, length: { maximum: 500 }
+
   # Alias actions and validators
   before_validation :tidy_up_alias
   validates :alias, format: { with: /\A[a-z\d]*\Z/i, message: "only allows letters and numbers" }
-  validates :alias, length: { minimum: 4 }
+  validates :alias, length: { minimum: 4, maximum: 20 }
   validates :alias, uniqueness: true
 
 
