@@ -1,8 +1,10 @@
 <div class="row" style="margin-top:100px;">
 	<h2><%= @place.name %> <%= @place.unit_number.present? ? @place.unit_number : '' %></h2>
 	<p><%= @place.unit_number.present? ? @place.unit_number : '' %> <%= @place.formatted_address %></p>
-	<h2>Photo</h2>
-	<p><%= image_tag @place.main_photo.url(:original) %></p>
+	<% if @place.main_photo? %>
+		<h2>Photo</h2>
+		<p><%= image_tag @place.main_photo.url(:original) %></p>
+	<% end %>
 	<h2>Map</h2>
 	<!-- <div class="row"> -->
 		<%= link_to "click to open in Google Maps", @place.google_url %>	
@@ -25,6 +27,11 @@
 		<p><%= @place.parking_notes %></p>
 	</div>
 </div>
+<% if @place.expired? == false %>
+	<div class='row'>
+			<small>This post expires in <%= distance_of_time_in_words(@place.expires_at, Time.now) %></small>
+	</div>
+<% end %>
 
 <script type="text/javascript">
   window.Hurio = {};

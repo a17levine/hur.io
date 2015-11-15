@@ -40,6 +40,24 @@ class Place < ActiveRecord::Base
     map.url(:auto)
   end
 
+  def expires_at
+    if self.user
+      nil
+    else
+      self.created_at + 14.days
+    end
+  end
+
+  def expired?
+    if self.user
+      nil
+    elsif expires_at < Time.now
+      true
+    else
+      false
+    end
+  end
+
   protected
   
   def google_query

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906000504) do
+ActiveRecord::Schema.define(version: 20151115215521) do
 
   create_table "places", force: true do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150906000504) do
     t.integer  "main_photo_file_size"
     t.datetime "main_photo_updated_at"
     t.string   "unit_number"
+    t.string   "user_remote_ip"
   end
 
   add_index "places", ["user_id"], name: "index_places_on_user_id"
